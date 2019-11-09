@@ -1,6 +1,6 @@
 # DauScore: A Scoring Rubric for Datasets
 
-[View on GitHub](https://github.com/treenotation/datascore.treenotation.org)
+[View on GitHub](https://github.com/treenotation/dauscore)
 
 DauScore helps you quickly access the quality and usability of a dataset.
 
