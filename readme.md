@@ -10,5 +10,11 @@ Datasets accumulate points for having flaws.
 
 DauScore is a list of what the flaws are, and a set of arbitraray weights that the community can decide upon to penalize datasets more for common mistakes.
 
-## A Lower DauScore is Better
+## Further Reading
 
+- [TAQIH 2019](https://www.sciencedirect.com/science/article/pii/S0169260718304188)
+- [Weiskopf](https://egems.academyhealth.org/articles/10.5334/egems.218/)
+- [DQS4H](https://www.i-hd.eu/index.cfm/services/dqs4h/)
+- [Rubric](https://en.wikipedia.org/wiki/Rubric_(academic))
+
+Thanks to [Dr. Donaldson](http://wphomes.soic.indiana.edu/drdonald/) for the pointers to some of the references.
