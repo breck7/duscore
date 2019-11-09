@@ -1,0 +1,50 @@
+relevance
+ missingIdealColumnsListed
+completeness
+ rows 100
+ idealRows 1000
+ columns 10
+ idealColumns 40
+ missingCells 22
+timeliness
+ timeUnits
+ idealTimeUnits
+accuracy
+ cellErrors
+ inaccurateCells 3
+ unbiased
+ noBatchEffects
+ duplicates
+ sanityChecks
+specifications
+ grammarAvailable
+ columnDescriptionsAvailable
+ columnDomainsReduced
+ canSynthesizeRows yes
+provenance
+ originIsListed
+ equipmentListed
+ methodologyListed
+ rawDataAvailable
+ machineSpecificationsAvailable
+ blameable
+ chainOfCustody
+ authorsListed
+accessibility
+ price
+ directLink
+ loginRequired
+ publicDomain
+computability
+ jsonAvailable
+ csvAvailable
+ xmlAvailable
+ apacheArrowAvailable
+ tsvAvailable
+ sqlAvailable
+ isomorphic
+ normalized
+ noiseFree
+joinability
+ usesCommonGrammar
+ easyToJoin
