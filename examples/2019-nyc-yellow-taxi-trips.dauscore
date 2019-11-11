@@ -1,7 +1,7 @@
 # Basics
-This [synthesized|real] dataset is titled [string]
-The data is [synthesized|real]
-The project link is [url]
+This real dataset is titled January 2019 NYC Yellow Taxi Trip Records
+The data is real
+The project link is https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page
 # Specifications
 The specLink is [url]
 There are [integer] types/tables/kinds of entities
@@ -9,8 +9,8 @@ There are [integer] columns
 There are [integer] columnTypes
 The column domains [are|are not] appropriately reduced
 # Data
-The downloadLink is [url]
-The fileSize is [number] [byteUnit]
+The downloadLink is https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2019-01.csv
+The fileSize is 655 megabytes
 There are [integer] rows
 The estimated number of potential rows in the domain is listed as [integer]
 # Tests

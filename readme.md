@@ -18,3 +18,8 @@ DauScore is a list of what the flaws are, and a set of arbitraray weights that t
 - [Rubric](https://en.wikipedia.org/wiki/Rubric_(academic))
 
 Thanks to [Dr. Donaldson](http://wphomes.soic.indiana.edu/drdonald/) for the pointers to some of the references.
+
+## Lists of Lists of Datasets
+
+-[Awesome Public Datasets](https://github.com/awesomedata/awesome-public-datasets)
+-[NLP Datasets](https://github.com/niderhoff/nlp-datasets)

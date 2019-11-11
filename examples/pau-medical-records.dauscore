@@ -1,17 +1,17 @@
 # Basics
-This [synthesized|real] dataset is titled [string]
-The data is [synthesized|real]
-The project link is [url]
+This synthesized dataset is titled Pau Population Sample
+The data is synthesized
+The project link is https://github.com/treenotation/pau
 # Specifications
-The specLink is [url]
+The specLink is https://github.com/treenotation/pau/blob/master/pau.grammar
 There are [integer] types/tables/kinds of entities
 There are [integer] columns
 There are [integer] columnTypes
 The column domains [are|are not] appropriately reduced
 # Data
-The downloadLink is [url]
-The fileSize is [number] [byteUnit]
-There are [integer] rows
+The downloadLink is https://github.com/treenotation/pau/blob/master/population-sample.pau
+The fileSize is 2.6 kilobytes
+There are 10 rows
 The estimated number of potential rows in the domain is listed as [integer]
 # Tests
 It [passes|fails] the copy/paste test
