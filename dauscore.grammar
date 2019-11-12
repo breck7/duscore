@@ -1,13 +1,21 @@
+tooling onsave jtree build produceDauGrammar
 boolCell
+ enum Yes No
 keywordCell
 stringCell
  highlightScope string
 urlCell
  highlightScope constant
 intCell
-dauScoreNode
+dauscoreNode
  root
  inScope abstractQuestionNode
+ javascript
+  execute() {
+   this.getTopDownArray()
+    .map(node => node.execute())
+    .reduce((total, current) => total + current, 0)
+  }
 abstractQuestionNode
  abstract
 abstractStringQuestionNode
@@ -15,78 +23,25 @@ abstractStringQuestionNode
  cells keywordCell
  catchAllCellType stringCell
  abstract
-abstractBooleanQuestionNode
- extends abstractQuestionNode
- cells keywordCell boolCell
- abstract
-abstractUrlQuestionNode
- extends abstractQuestionNode
- cells keywordCell urlCell
- abstract
-abstractCountQuestionNode
- extends abstractQuestionNode
- cells keywordCell intCell
- abstract
 titleNode
  crux title
  string category Basics
  extends abstractStringQuestionNode
  description This dataset is titled {string+}
+abstractBooleanQuestionNode
+ extends abstractQuestionNode
+ cells keywordCell boolCell
+ abstract
 realNode
  crux real
  string category Basics
  extends abstractBooleanQuestionNode
  description The data is [real|synthesized]
-projectLinkNode
- crux projectLink
- string category Basics
- extends abstractUrlQuestionNode
- description The project link is {url}
-specLinkNode
- crux specLink
- string category Specifications
- extends abstractUrlQuestionNode
- description The specLink is {url}
-tableCountNode
- crux tableCount
- string category Specifications
- extends abstractCountQuestionNode
- description There are {integer} types/tables/kinds of entities
-columnCountNode
- crux columnCount
- string category Specifications
- extends abstractCountQuestionNode
- description There are {integer} columns
-columnTypesNode
- crux columnTypes
- string category Specifications
- extends abstractCountQuestionNode
- description There are {integer} columnTypes
 columnDomainsReducedNode
  crux columnDomainsReduced
  string category Specifications
  extends abstractBooleanQuestionNode
  description The column domains [are|are not] appropriately reduced
-downloadLinkNode
- crux downloadLink
- string category Data
- extends abstractUrlQuestionNode
- description The downloadLink is {url}
-filesizeNode
- crux filesize
- string category Data
- extends abstractCountQuestionNode
- description The fileSize is {integer} bytes
-rowCountNode
- crux rowCount
- string category Data
- extends abstractCountQuestionNode
- description There are {integer} rows
-rowDomainEstimateNode
- crux rowDomainEstimate
- string category Data
- extends abstractCountQuestionNode
- description The estimated number of potential rows in the domain is listed as {integer}
 timeSpanNode
  crux timeSpan
  string category Timeliness
@@ -127,21 +82,6 @@ passesReproducableTestNode
  string category Tests
  extends abstractBooleanQuestionNode
  description It [passes|fails] the reproduce from rawData test
-futureWorkNode
- crux futureWork
- string category Future Work
- extends abstractCountQuestionNode
- description The project lists {integer} missing columns that would be nice to have
-missingCellCountNode
- crux missingCellCount
- string category Accuracy
- extends abstractCountQuestionNode
- description The dataset contains {integer} missing cells
-cellErrorCountNode
- crux cellErrorCount
- string category Accuracy
- extends abstractCountQuestionNode
- description The dataset contains {integer} cellType errors
 hasProcessDocumentationNode
  crux processDocumentation
  string category Provenance
@@ -247,16 +187,6 @@ isomorphicSchemaNode
  string category Schema Design
  extends abstractBooleanQuestionNode
  description The schema [is|is not] isomorphic
-duplicatedRowCountNode
- crux duplicatedRowCount
- string category Normalization
- extends abstractCountQuestionNode
- description The dataset contains {integer} duplicated rows
-duplicatedCellCountNode
- crux duplicatedCellCount
- string category Normalization
- extends abstractCountQuestionNode
- description The dataset contains {integer} duplicated cells
 standardsNotUsedCountNode
  crux standardsNotUsedCount
  string category Joinability
@@ -272,3 +202,81 @@ easyToJoinNode
  string category Joinability
  extends abstractBooleanQuestionNode
  description Data [is|is not] easy to join on orthogonal datasets
+abstractUrlQuestionNode
+ extends abstractQuestionNode
+ cells keywordCell urlCell
+ abstract
+projectLinkNode
+ crux projectLink
+ string category Basics
+ extends abstractUrlQuestionNode
+ description The project link is {url}
+specLinkNode
+ crux specLink
+ string category Specifications
+ extends abstractUrlQuestionNode
+ description The specLink is {url}
+downloadLinkNode
+ crux downloadLink
+ string category Data
+ extends abstractUrlQuestionNode
+ description The downloadLink is {url}
+abstractCountQuestionNode
+ extends abstractQuestionNode
+ cells keywordCell intCell
+ abstract
+tableCountNode
+ crux tableCount
+ string category Specifications
+ extends abstractCountQuestionNode
+ description There are {integer} types/tables/kinds of entities
+columnCountNode
+ crux columnCount
+ string category Specifications
+ extends abstractCountQuestionNode
+ description There are {integer} columns
+columnTypesNode
+ crux columnTypes
+ string category Specifications
+ extends abstractCountQuestionNode
+ description There are {integer} columnTypes
+filesizeNode
+ crux filesize
+ string category Data
+ extends abstractCountQuestionNode
+ description The fileSize is {integer} bytes
+rowCountNode
+ crux rowCount
+ string category Data
+ extends abstractCountQuestionNode
+ description There are {integer} rows
+rowDomainEstimateNode
+ crux rowDomainEstimate
+ string category Data
+ extends abstractCountQuestionNode
+ description The estimated number of potential rows in the domain is listed as {integer}
+futureWorkNode
+ crux futureWork
+ string category Future Work
+ extends abstractCountQuestionNode
+ description The project lists {integer} missing columns that would be nice to have
+missingCellCountNode
+ crux missingCellCount
+ string category Accuracy
+ extends abstractCountQuestionNode
+ description The dataset contains {integer} missing cells
+cellErrorCountNode
+ crux cellErrorCount
+ string category Accuracy
+ extends abstractCountQuestionNode
+ description The dataset contains {integer} cellType errors
+duplicatedRowCountNode
+ crux duplicatedRowCount
+ string category Normalization
+ extends abstractCountQuestionNode
+ description The dataset contains {integer} duplicated rows
+duplicatedCellCountNode
+ crux duplicatedCellCount
+ string category Normalization
+ extends abstractCountQuestionNode
+ description The dataset contains {integer} duplicated cells

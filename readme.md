@@ -1,4 +1,6 @@
-# DauScore: A Scoring Rubric for Datasets
+# DauScore: A holistic scoring rubric for datasets
+
+[Try it Now](http://dauscore.treenotation.org/app/)
 
 [View on GitHub](https://github.com/treenotation/dauscore)
 

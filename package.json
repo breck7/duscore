@@ -20,6 +20,9 @@
   },
   "homepage": "https://github.com/treenotation/dauscore#readme",
   "dependencies": {
-    "jtree": "^45.0.0"
+    "@types/node": "^12.12.7",
+    "jtree": "^45.0.0",
+    "ts-node": "^8.5.0",
+    "typescript": "^3.7.2"
   }
 }
