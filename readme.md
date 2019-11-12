@@ -21,5 +21,5 @@ Thanks to [Dr. Donaldson](http://wphomes.soic.indiana.edu/drdonald/) for the poi
 
 ## Lists of Lists of Datasets
 
--[Awesome Public Datasets](https://github.com/awesomedata/awesome-public-datasets)
--[NLP Datasets](https://github.com/niderhoff/nlp-datasets)
+- [Awesome Public Datasets](https://github.com/awesomedata/awesome-public-datasets)
+- [NLP Datasets](https://github.com/niderhoff/nlp-datasets)

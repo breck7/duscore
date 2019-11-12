@@ -1,0 +1,274 @@
+boolCell
+keywordCell
+stringCell
+ highlightScope string
+urlCell
+ highlightScope constant
+intCell
+dauScoreNode
+ root
+ inScope abstractQuestionNode
+abstractQuestionNode
+ abstract
+abstractStringQuestionNode
+ extends abstractQuestionNode
+ cells keywordCell
+ catchAllCellType stringCell
+ abstract
+abstractBooleanQuestionNode
+ extends abstractQuestionNode
+ cells keywordCell boolCell
+ abstract
+abstractUrlQuestionNode
+ extends abstractQuestionNode
+ cells keywordCell urlCell
+ abstract
+abstractCountQuestionNode
+ extends abstractQuestionNode
+ cells keywordCell intCell
+ abstract
+titleNode
+ crux title
+ string category Basics
+ extends abstractStringQuestionNode
+ description This dataset is titled {string+}
+realNode
+ crux real
+ string category Basics
+ extends abstractBooleanQuestionNode
+ description The data is [real|synthesized]
+projectLinkNode
+ crux projectLink
+ string category Basics
+ extends abstractUrlQuestionNode
+ description The project link is {url}
+specLinkNode
+ crux specLink
+ string category Specifications
+ extends abstractUrlQuestionNode
+ description The specLink is {url}
+tableCountNode
+ crux tableCount
+ string category Specifications
+ extends abstractCountQuestionNode
+ description There are {integer} types/tables/kinds of entities
+columnCountNode
+ crux columnCount
+ string category Specifications
+ extends abstractCountQuestionNode
+ description There are {integer} columns
+columnTypesNode
+ crux columnTypes
+ string category Specifications
+ extends abstractCountQuestionNode
+ description There are {integer} columnTypes
+columnDomainsReducedNode
+ crux columnDomainsReduced
+ string category Specifications
+ extends abstractBooleanQuestionNode
+ description The column domains [are|are not] appropriately reduced
+downloadLinkNode
+ crux downloadLink
+ string category Data
+ extends abstractUrlQuestionNode
+ description The downloadLink is {url}
+filesizeNode
+ crux filesize
+ string category Data
+ extends abstractCountQuestionNode
+ description The fileSize is {integer} bytes
+rowCountNode
+ crux rowCount
+ string category Data
+ extends abstractCountQuestionNode
+ description There are {integer} rows
+rowDomainEstimateNode
+ crux rowDomainEstimate
+ string category Data
+ extends abstractCountQuestionNode
+ description The estimated number of potential rows in the domain is listed as {integer}
+timeSpanNode
+ crux timeSpan
+ string category Timeliness
+ extends abstractBooleanQuestionNode
+ description The measurements [are|are not] over a long enough time period
+passesCopyPasteTestNode
+ crux copyPasteTest
+ string category Tests
+ extends abstractBooleanQuestionNode
+ description It [passes|fails] the copy/paste test
+passesGoToDefinitionTestNode
+ crux goToDefinitionTest
+ string category Tests
+ extends abstractBooleanQuestionNode
+ description It [passes|fails] the goToDefinition test
+passesOneClickSynthTestNode
+ crux oneClickSynthTest
+ string category Tests
+ extends abstractBooleanQuestionNode
+ description It [passes|fails] the 1 click synth test
+passesCellCheckTestNode
+ crux cellCheckTest
+ string category Tests
+ extends abstractBooleanQuestionNode
+ description It [passes|fails] the cellCheck test
+passesDownloadTestNode
+ crux downloadTest
+ string category Tests
+ extends abstractBooleanQuestionNode
+ description It [passes|fails] the download test
+passesSanityTestNode
+ crux sanityTest
+ string category Tests
+ extends abstractBooleanQuestionNode
+ description It [passes|fails] basic sanity tests
+passesReproducableTestNode
+ crux reproducableTest
+ string category Tests
+ extends abstractBooleanQuestionNode
+ description It [passes|fails] the reproduce from rawData test
+futureWorkNode
+ crux futureWork
+ string category Future Work
+ extends abstractCountQuestionNode
+ description The project lists {integer} missing columns that would be nice to have
+missingCellCountNode
+ crux missingCellCount
+ string category Accuracy
+ extends abstractCountQuestionNode
+ description The dataset contains {integer} missing cells
+cellErrorCountNode
+ crux cellErrorCount
+ string category Accuracy
+ extends abstractCountQuestionNode
+ description The dataset contains {integer} cellType errors
+hasProcessDocumentationNode
+ crux processDocumentation
+ string category Provenance
+ extends abstractBooleanQuestionNode
+ description The data collection steps [are|are not] listed
+hasMachineDocumentationNode
+ crux machineDocumentation
+ string category Provenance
+ extends abstractBooleanQuestionNode
+ description The machines used to gather the dataset [are|are not] listed
+accountsForBatchEffectsNode
+ crux batchEffectsChecked
+ string category Provenance
+ extends abstractBooleanQuestionNode
+ description The batches and potential batch effects [are|are not] listed
+listsPotentialBiasesNode
+ crux biasesListed
+ string category Provenance
+ extends abstractBooleanQuestionNode
+ description Potential bias in the dataset [is|is not] explained
+rawDataAvailableNode
+ crux rawDataAvailable
+ string category Provenance
+ extends abstractBooleanQuestionNode
+ description The rawData [is|is not] available
+rawDataCodeNode
+ crux rawDataCode
+ string category Provenance
+ extends abstractBooleanQuestionNode
+ description The specifications and code needed to process the raw data [are|are not] available
+versionControlledNode
+ crux versionControlled
+ string category Auditing
+ extends abstractBooleanQuestionNode
+ description The dataset [is|is not] version controlled
+blameableNode
+ crux blameable
+ string category Auditing
+ extends abstractBooleanQuestionNode
+ description All rows and cells [are|are not] blameable
+authorsListedNode
+ crux authorsListed
+ string category Auditing
+ extends abstractBooleanQuestionNode
+ description All authors and editors [are|are not] listed
+priceNode
+ crux price
+ string category Accessibility
+ extends abstractBooleanQuestionNode
+ description The price to download the data and specs is {number}
+loginRequiredNode
+ crux loginRequired
+ string category Accessibility
+ extends abstractBooleanQuestionNode
+ description A login [is|is not] required to download the data
+publicDomainNode
+ crux publicDomain
+ string category Accessibility
+ extends abstractBooleanQuestionNode
+ description The data [is|is not] released to the public domain
+directLinkNode
+ crux directLink
+ string category Accessibility
+ extends abstractBooleanQuestionNode
+ description A direct link to the data [is|is not] available
+csvAvailableNode
+ crux csvAvailable
+ string category Formats
+ extends abstractBooleanQuestionNode
+ description The dataset [is|is not] available in CSV
+tsvAvailableNode
+ crux tsvAvailable
+ string category Formats
+ extends abstractBooleanQuestionNode
+ description The dataset [is|is not] available in TSV
+sqlAvailableNode
+ crux sqlAvailable
+ string category Formats
+ extends abstractBooleanQuestionNode
+ description The dataset [is|is not] available in SQL
+jsonAvailableNode
+ crux jsonAvailable
+ string category Formats
+ extends abstractBooleanQuestionNode
+ description The dataset [is|is not] available in JSON
+apacheArrowAvailableNode
+ crux apacheArrowAvailable
+ string category Formats
+ extends abstractBooleanQuestionNode
+ description The dataset [is|is not] available in ApacheArrow
+xmlAvailableNode
+ crux xmlAvailable
+ string category Formats
+ extends abstractBooleanQuestionNode
+ description The dataset [is|is not] available in XML
+noiselessNode
+ crux noiseless
+ string category Schema Design
+ extends abstractBooleanQuestionNode
+ description Format noise [has|has not been] minimized
+isomorphicSchemaNode
+ crux isomorphicSchema
+ string category Schema Design
+ extends abstractBooleanQuestionNode
+ description The schema [is|is not] isomorphic
+duplicatedRowCountNode
+ crux duplicatedRowCount
+ string category Normalization
+ extends abstractCountQuestionNode
+ description The dataset contains {integer} duplicated rows
+duplicatedCellCountNode
+ crux duplicatedCellCount
+ string category Normalization
+ extends abstractCountQuestionNode
+ description The dataset contains {integer} duplicated cells
+standardsNotUsedCountNode
+ crux standardsNotUsedCount
+ string category Joinability
+ extends abstractBooleanQuestionNode
+ description Common specified grammars and standards [are|are not] used
+externalGrammarsListedNode
+ crux externalGrammarsListed
+ string category Joinability
+ extends abstractBooleanQuestionNode
+ description External grammars [are|are not] listed and specified
+easyToJoinNode
+ crux easyToJoin
+ string category Joinability
+ extends abstractBooleanQuestionNode
+ description Data [is|is not] easy to join on orthogonal datasets

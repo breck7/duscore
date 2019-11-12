@@ -1,19 +1,22 @@
-# Basics
-This real dataset is titled January 2019 NYC Yellow Taxi Trip Records
+Basics
+This dataset is titled January 2019 NYC Yellow Taxi Trip Records
 The data is real
 The project link is https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page
-# Specifications
+
+Specifications
 The specLink is [url]
 There are [integer] types/tables/kinds of entities
 There are [integer] columns
 There are [integer] columnTypes
 The column domains [are|are not] appropriately reduced
-# Data
+
+Data
 The downloadLink is https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2019-01.csv
 The fileSize is 655 megabytes
 There are [integer] rows
 The estimated number of potential rows in the domain is listed as [integer]
-# Tests
+
+Tests
 It [passes|fails] the copy/paste test
 It [passes|fails] the goToDefinition test
 It [passes|fails] the 1 click synth test
@@ -21,43 +24,53 @@ It [passes|fails] the cellCheck test
 It [passes|fails] the download test
 It [passes|fails] basic sanity tests
 It [passes|fails] the reproduce from rawData test
-# Timeliness
+
+Timeliness
 The measurements span [number] [months|days|years|hours|minutes|seconds|other]
-# Future Work
+
+Future Work
 The project lists [integer] missing columns that would be nice to have named [string[]]
-# Accuracy
+
+Accuracy
 The dataset contains [integer] missing cells
 The dataset contains [integer] cellType errors
-# Provenance
+
+Provenance
 The data collection steps [are|are not] listed
 The machines used to gather the dataset [are|are not] listed
 The batches and potential batch effects [are|are not] listed
 Potential bias in the dataset [is|is not] explained
 The rawData [is|is not] available
 The specifications and code needed to process the raw data [are|are not] available
-# Auditing
+
+Auditing
 The dataset [is|is not] version controlled
 All rows and cells [are|are not] blameable
 All authors and editors [are|are not] listed
-# Accessibility
+
+Accessibility
 The price to download the data and specs is [number]
 A login [is|is not] required to download the data
 The data [is|is not] released to the public domain
 A direct link to the data [is|is not] available
-# Formats
+
+Formats
 The dataset [is|is not] available in CSV
 The dataset [is|is not] available in TSV
 The dataset [is|is not] available in SQL
 The dataset [is|is not] available in JSON
 The dataset [is|is not] available in ApacheArrow
 The dataset [is|is not] available in XML
-# Schema Design
+
+Schema Design
 Format noise [has|has not been] minimized
 The schema [is|is not isomorphic]
-# Normalization
+
+Normalization
 The dataset contains [integer] duplicated rows
 The dataset contains [integer] duplicated cells
-# Joinability
+
+Joinability
 Common specified grammars and standards [are|are not] used
 External grammars [are|are not] listed and specified
 Data [is|is not] easy to join on orthogonal datasets

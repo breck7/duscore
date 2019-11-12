@@ -1,0 +1,25 @@
+{
+  "name": "dauscore",
+  "version": "1.0.0",
+  "description": "A Scoring Rubric for Datasets",
+  "main": "index.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/treenotation/dauscore.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/treenotation/dauscore/issues"
+  },
+  "homepage": "https://github.com/treenotation/dauscore#readme",
+  "dependencies": {
+    "jtree": "^45.0.0"
+  }
+}
