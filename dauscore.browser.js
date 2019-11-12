@@ -24,7 +24,6 @@
           versionControlled: versionControlledNode,
           blameable: blameableNode,
           authorsListed: authorsListedNode,
-          price: priceNode,
           loginRequired: loginRequiredNode,
           publicDomain: publicDomainNode,
           directLink: directLinkNode,
@@ -39,9 +38,7 @@
           standardsNotUsedCount: standardsNotUsedCountNode,
           externalGrammarsListed: externalGrammarsListedNode,
           easyToJoin: easyToJoinNode,
-          projectLink: projectLinkNode,
-          specLink: specLinkNode,
-          downloadLink: downloadLinkNode,
+          price: priceNode,
           tableCount: tableCountNode,
           columnCount: columnCountNode,
           columnTypes: columnTypesNode,
@@ -52,14 +49,17 @@
           missingCellCount: missingCellCountNode,
           cellErrorCount: cellErrorCountNode,
           duplicatedRowCount: duplicatedRowCountNode,
-          duplicatedCellCount: duplicatedCellCountNode
+          duplicatedCellCount: duplicatedCellCountNode,
+          projectLink: projectLinkNode,
+          specLink: specLinkNode,
+          downloadLink: downloadLinkNode
         }),
         undefined
       )
     }
-    execute() {
-      this.getTopDownArray()
-        .map(node => node.execute())
+    computeScore() {
+      return this.getTopDownArray()
+        .map(node => node.computeScore())
         .reduce((total, current) => total + current, 0)
     }
     getGrammarProgram() {
@@ -77,9 +77,9 @@ dauscoreNode
  root
  inScope abstractQuestionNode
  javascript
-  execute() {
-   this.getTopDownArray()
-    .map(node => node.execute())
+  computeScore() {
+   return this.getTopDownArray()
+    .map(node => node.computeScore())
     .reduce((total, current) => total + current, 0)
   }
 abstractQuestionNode
@@ -89,6 +89,10 @@ abstractStringQuestionNode
  cells keywordCell
  catchAllCellType stringCell
  abstract
+  javascript
+  computeScore() {
+   return 0
+  }
 titleNode
  crux title
  string category Basics
@@ -98,6 +102,10 @@ abstractBooleanQuestionNode
  extends abstractQuestionNode
  cells keywordCell boolCell
  abstract
+ javascript
+  computeScore() {
+   return this.getWord(1) === "Yes" ? 0 : 10
+  }
 realNode
  crux real
  string category Basics
@@ -193,11 +201,6 @@ authorsListedNode
  string category Auditing
  extends abstractBooleanQuestionNode
  description All authors and editors [are|are not] listed
-priceNode
- crux price
- string category Accessibility
- extends abstractBooleanQuestionNode
- description The price to download the data and specs is {number}
 loginRequiredNode
  crux loginRequired
  string category Accessibility
@@ -268,29 +271,19 @@ easyToJoinNode
  string category Joinability
  extends abstractBooleanQuestionNode
  description Data [is|is not] easy to join on orthogonal datasets
-abstractUrlQuestionNode
- extends abstractQuestionNode
- cells keywordCell urlCell
- abstract
-projectLinkNode
- crux projectLink
- string category Basics
- extends abstractUrlQuestionNode
- description The project link is {url}
-specLinkNode
- crux specLink
- string category Specifications
- extends abstractUrlQuestionNode
- description The specLink is {url}
-downloadLinkNode
- crux downloadLink
- string category Data
- extends abstractUrlQuestionNode
- description The downloadLink is {url}
 abstractCountQuestionNode
  extends abstractQuestionNode
  cells keywordCell intCell
  abstract
+ javascript
+  computeScore() {
+   return parseInt(this.getWord(1) || 10)
+  }
+priceNode
+ crux price
+ string category Accessibility
+ extends abstractCountQuestionNode
+ description The price to download the data and specs is {number}
 tableCountNode
  crux tableCount
  string category Specifications
@@ -345,7 +338,30 @@ duplicatedCellCountNode
  crux duplicatedCellCount
  string category Normalization
  extends abstractCountQuestionNode
- description The dataset contains {integer} duplicated cells`)
+ description The dataset contains {integer} duplicated cells
+abstractUrlQuestionNode
+ extends abstractQuestionNode
+ cells keywordCell urlCell
+ abstract
+ javascript
+  computeScore() {
+   return this.getWord(1) ? 0 : 100
+  }
+projectLinkNode
+ crux projectLink
+ string category Basics
+ extends abstractUrlQuestionNode
+ description The project link is {url}
+specLinkNode
+ crux specLink
+ string category Specifications
+ extends abstractUrlQuestionNode
+ description The specLink is {url}
+downloadLinkNode
+ crux downloadLink
+ string category Data
+ extends abstractUrlQuestionNode
+ description The downloadLink is {url}`)
       return this._cachedGrammarProgramRoot
     }
     static getNodeTypeMap() {
@@ -374,7 +390,6 @@ duplicatedCellCountNode
         versionControlledNode: versionControlledNode,
         blameableNode: blameableNode,
         authorsListedNode: authorsListedNode,
-        priceNode: priceNode,
         loginRequiredNode: loginRequiredNode,
         publicDomainNode: publicDomainNode,
         directLinkNode: directLinkNode,
@@ -389,11 +404,8 @@ duplicatedCellCountNode
         standardsNotUsedCountNode: standardsNotUsedCountNode,
         externalGrammarsListedNode: externalGrammarsListedNode,
         easyToJoinNode: easyToJoinNode,
-        abstractUrlQuestionNode: abstractUrlQuestionNode,
-        projectLinkNode: projectLinkNode,
-        specLinkNode: specLinkNode,
-        downloadLinkNode: downloadLinkNode,
         abstractCountQuestionNode: abstractCountQuestionNode,
+        priceNode: priceNode,
         tableCountNode: tableCountNode,
         columnCountNode: columnCountNode,
         columnTypesNode: columnTypesNode,
@@ -404,7 +416,11 @@ duplicatedCellCountNode
         missingCellCountNode: missingCellCountNode,
         cellErrorCountNode: cellErrorCountNode,
         duplicatedRowCountNode: duplicatedRowCountNode,
-        duplicatedCellCountNode: duplicatedCellCountNode
+        duplicatedCellCountNode: duplicatedCellCountNode,
+        abstractUrlQuestionNode: abstractUrlQuestionNode,
+        projectLinkNode: projectLinkNode,
+        specLinkNode: specLinkNode,
+        downloadLinkNode: downloadLinkNode
       }
     }
   }
@@ -432,6 +448,9 @@ duplicatedCellCountNode
     }
     get boolCell() {
       return this.getWord(1)
+    }
+    computeScore() {
+      return this.getWord(1) === "Yes" ? 0 : 10
     }
   }
 
@@ -549,12 +568,6 @@ duplicatedCellCountNode
     }
   }
 
-  class priceNode extends abstractBooleanQuestionNode {
-    get category() {
-      return `Accessibility`
-    }
-  }
-
   class loginRequiredNode extends abstractBooleanQuestionNode {
     get category() {
       return `Accessibility`
@@ -639,39 +652,21 @@ duplicatedCellCountNode
     }
   }
 
-  class abstractUrlQuestionNode extends abstractQuestionNode {
-    get keywordCell() {
-      return this.getWord(0)
-    }
-    get urlCell() {
-      return this.getWord(1)
-    }
-  }
-
-  class projectLinkNode extends abstractUrlQuestionNode {
-    get category() {
-      return `Basics`
-    }
-  }
-
-  class specLinkNode extends abstractUrlQuestionNode {
-    get category() {
-      return `Specifications`
-    }
-  }
-
-  class downloadLinkNode extends abstractUrlQuestionNode {
-    get category() {
-      return `Data`
-    }
-  }
-
   class abstractCountQuestionNode extends abstractQuestionNode {
     get keywordCell() {
       return this.getWord(0)
     }
     get intCell() {
       return parseInt(this.getWord(1))
+    }
+    computeScore() {
+      return parseInt(this.getWord(1) || 10)
+    }
+  }
+
+  class priceNode extends abstractCountQuestionNode {
+    get category() {
+      return `Accessibility`
     }
   }
 
@@ -738,6 +733,36 @@ duplicatedCellCountNode
   class duplicatedCellCountNode extends abstractCountQuestionNode {
     get category() {
       return `Normalization`
+    }
+  }
+
+  class abstractUrlQuestionNode extends abstractQuestionNode {
+    get keywordCell() {
+      return this.getWord(0)
+    }
+    get urlCell() {
+      return this.getWord(1)
+    }
+    computeScore() {
+      return this.getWord(1) ? 0 : 100
+    }
+  }
+
+  class projectLinkNode extends abstractUrlQuestionNode {
+    get category() {
+      return `Basics`
+    }
+  }
+
+  class specLinkNode extends abstractUrlQuestionNode {
+    get category() {
+      return `Specifications`
+    }
+  }
+
+  class downloadLinkNode extends abstractUrlQuestionNode {
+    get category() {
+      return `Data`
     }
   }
 
