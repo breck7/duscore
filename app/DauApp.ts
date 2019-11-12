@@ -11,6 +11,7 @@ class DauCommander extends AbstractCommander {
   }
 
   evaluteScoreAndUpdateCopyPasterCommand() {
+    console.log(2)
     const formData = new FormData(document.getElementById("dauFormComponent"))
     const tree = new jtree.TreeNode()
     for (let pair of formData.entries()) {
@@ -18,6 +19,14 @@ class DauCommander extends AbstractCommander {
     }
 
     this._app.setDauProgram(tree).renderAndGetRenderReport()
+  }
+
+  loadFromPasteCommand(value) {
+    const tree = new jtree.TreeNode(value)
+    tree.forEach(node => {
+      const element = document.getElementsByName(node.getWord(0))[0]
+      element.value = node.getWord(1)
+    })
   }
 
   private _app: DauApp
@@ -104,6 +113,7 @@ class copyPasterComponent extends AbstractTreeComponent {
  class copyPasterComponent
  div CopyPaster
  textarea
+  stumpOnChangeCommand loadFromPasteCommand
   bern
 ${this.getParent()
   .getDauProgram()
