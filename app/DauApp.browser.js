@@ -5,7 +5,6 @@ class DauCommander extends AbstractCommander {
     this._app = app
   }
   evaluteScoreAndUpdateCopyPasterCommand() {
-    console.log(2)
     const formData = new FormData(document.getElementById("dauFormComponent"))
     const tree = new jtree.TreeNode()
     for (let pair of formData.entries()) {
