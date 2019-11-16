@@ -14,7 +14,7 @@ DauScore is a list of what the flaws are, and a set of arbitraray weights that t
 
 ## Further Reading
 
-- [Kaggle Datasets](https://www.kaggle.com/datasets) - Kaggle's "data usability" score is a similar idea and seems to be the best implementation so far
+- [Kaggle Datasets](https://www.kaggle.com/product-feedback/93922) - Kaggle's "data usability" score is a similar idea and seems to be the best implementation so far
 - [TAQIH 2019](https://www.sciencedirect.com/science/article/pii/S0169260718304188)
 - [Weiskopf](https://egems.academyhealth.org/articles/10.5334/egems.218/)
 - [DQS4H](https://www.i-hd.eu/index.cfm/services/dqs4h/)
