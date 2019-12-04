@@ -1,5 +1,5 @@
 {
-  "name": "dauscore",
+  "name": "duscore",
   "version": "1.0.0",
   "description": "A Scoring Rubric for Datasets",
   "main": "index.js",
@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/treenotation/dauscore.git"
+    "url": "git+https://github.com/treenotation/duscore.git"
   },
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/treenotation/dauscore/issues"
+    "url": "https://github.com/treenotation/duscore/issues"
   },
-  "homepage": "https://github.com/treenotation/dauscore#readme",
+  "homepage": "https://github.com/treenotation/duscore#readme",
   "dependencies": {
     "@types/node": "^12.12.7",
     "jtree": "^45.0.0",

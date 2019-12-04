@@ -1,4 +1,4 @@
-tooling onsave jtree build produceDauGrammar
+tooling onsave jtree build produceDuGrammar
 boolCell
  enum Yes No
 keywordCell
@@ -7,7 +7,7 @@ stringCell
 urlCell
  highlightScope constant
 intCell
-dauscoreNode
+duscoreNode
  root
  inScope abstractQuestionNode
  javascript

@@ -1,17 +1,25 @@
 //onsave jtree build produceWebApp
-class DauCommander extends AbstractCommander {
-  constructor(app) {
+
+const { AbstractTreeComponent, AbstractCommander, WillowConstants, TreeComponentFrameworkDebuggerComponent, AbstractGithubTriangleComponent } = require("jtree/products/TreeComponentFramework.node.js")
+const { jtree } = require("jtree")
+const duscoreNode = require("../duscore.nodejs.js")
+
+class DuCommander extends AbstractCommander {
+  constructor(app: DuApp) {
     super(app)
     this._app = app
   }
+
   evaluteScoreAndUpdateCopyPasterCommand() {
-    const formData = new FormData(document.getElementById("dauFormComponent"))
+    const formData = new FormData(document.getElementById("duFormComponent"))
     const tree = new jtree.TreeNode()
     for (let pair of formData.entries()) {
       tree.appendLine(pair[0] + " " + pair[1])
     }
-    this._app.setDauProgram(tree).renderAndGetRenderReport()
+
+    this._app.setDuProgram(tree).renderAndGetRenderReport()
   }
+
   loadFromPasteCommand(value) {
     const tree = new jtree.TreeNode(value)
     tree.forEach(node => {
@@ -19,38 +27,39 @@ class DauCommander extends AbstractCommander {
       element.value = node.getWord(1)
     })
   }
+
+  private _app: DuApp
 }
-class DauApp extends AbstractTreeComponent {
-  constructor() {
-    super(...arguments)
-    this._commander = new DauCommander(this)
-    this._dauProgram = new dauscoreNode()
-  }
+
+class DuApp extends AbstractTreeComponent {
+  private _commander = new DuCommander(this)
   createParser() {
     return new jtree.TreeNode.Parser(undefined, {
       githubTriangleComponent: githubTriangleComponent,
       navBarComponent: navBarComponent,
       headerComponent: headerComponent,
       copyPasterComponent: copyPasterComponent,
-      dauFormComponent: dauFormComponent,
+      duFormComponent: duFormComponent,
       floatingScoreComponent: floatingScoreComponent,
       TreeComponentFrameworkDebuggerComponent: TreeComponentFrameworkDebuggerComponent
     })
   }
-  setDauProgram(tree) {
-    this._dauProgram = new dauscoreNode(tree)
+  private _duProgram = new duscoreNode()
+  setDuProgram(tree) {
+    this._duProgram = new duscoreNode(tree)
     // todo: remove the below.
     this.getNode("copyPasterComponent").setWord(1, Date.now())
     this.getNode("floatingScoreComponent").setWord(1, Date.now())
     return this
   }
-  getDauProgram() {
-    return this._dauProgram
+  getDuProgram() {
+    return this._duProgram
   }
+
   static getDefaultStartState() {
     return `navBarComponent
 headerComponent
-dauFormComponent
+duFormComponent
 copyPasterComponent
 floatingScoreComponent
 githubTriangleComponent`
@@ -66,25 +75,28 @@ h1
  font-weight 300`
   }
 }
+
 class headerComponent extends AbstractTreeComponent {
   toStumpCode() {
-    return `h1 DauScore Worksheet`
+    return `h1 DuScore Worksheet`
   }
 }
-class dauFormComponent extends AbstractTreeComponent {
+
+class duFormComponent extends AbstractTreeComponent {
   toHakonCode() {
     return `label
  width 200px
  display inline-block`
   }
   toStumpCode() {
-    const def = new dauscoreNode().getDefinition().getNodeTypeDefinitionByNodeTypeId("dauscoreNode")
+    const def = new duscoreNode().getDefinition().getNodeTypeDefinitionByNodeTypeId("duscoreNode")
     return `form
- id dauFormComponent
+ id duFormComponent
  stumpOnChangeCommand evaluteScoreAndUpdateCopyPasterCommand
 ${new jtree.TreeNode(def.toStumpString()).toString(1)}`
   }
 }
+
 class copyPasterComponent extends AbstractTreeComponent {
   toHakonCode() {
     return `.copyPasterComponent
@@ -103,10 +115,11 @@ class copyPasterComponent extends AbstractTreeComponent {
   stumpOnChangeCommand loadFromPasteCommand
   bern
 ${this.getParent()
-  .getDauProgram()
+  .getDuProgram()
   .toString(3)}`
   }
 }
+
 class floatingScoreComponent extends AbstractTreeComponent {
   toHakonCode() {
     return `.floatingScoreComponent
@@ -119,14 +132,15 @@ class floatingScoreComponent extends AbstractTreeComponent {
   toStumpCode() {
     return `div
  class floatingScoreComponent
- p DauScore is
+ p DuScore is
  h1 ${this.score}`
   }
   get score() {
-    const program = this.getParent().getDauProgram()
+    const program = this.getParent().getDuProgram()
     return program ? program.computeScore() : "-"
   }
 }
+
 class navBarComponent extends AbstractTreeComponent {
   toHakonCode() {
     return `.logo
@@ -137,17 +151,16 @@ class navBarComponent extends AbstractTreeComponent {
   }
   toStumpCode() {
     return `div
- a DAU
-  href https://dauscore.treenotation.org/
+ a DATA USABILITY SCORE
+  href https://duscore.treenotation.org/
   class logo
  span A holistic scoring rubric for datasets`
   }
 }
+
 class githubTriangleComponent extends AbstractGithubTriangleComponent {
-  constructor() {
-    super(...arguments)
-    this.githubLink = `https://github.com/treenotation/dauscore/tree/master/app`
-  }
+  githubLink = `https://github.com/treenotation/duscore/tree/master/app`
+
   toHakonCode() {
     return `.AbstractGithubTriangleComponent
  display block
@@ -163,4 +176,5 @@ class githubTriangleComponent extends AbstractGithubTriangleComponent {
   src github-fork.svg`
   }
 }
-window.DauApp = DauApp
+
+export { DuApp }

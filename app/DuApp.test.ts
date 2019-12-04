@@ -1,13 +1,13 @@
 #!/usr/bin/env ts-node
 
-const { DauApp } = require("./DauApp")
+const { DuApp } = require("./DuApp")
 
 const { jtree } = require("jtree")
 
 const testTree: any = {}
 
 testTree.basics = (equal: any) => {
-  const app = new DauApp()
+  const app = new DuApp()
   equal(true, true) // todo: add tests
 }
 

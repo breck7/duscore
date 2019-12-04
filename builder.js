@@ -3,14 +3,14 @@ const { AbstractBuilder } = require("jtree/products/AbstractBuilder.node.js")
 const { Disk } = require("jtree/products/Disk.node.js")
 const stumpNode = require("jtree/products/stump.nodejs.js")
 const hakonNode = require("jtree/products/hakon.nodejs.js")
-const dauGrammarPath = __dirname + "/dauscore.grammar"
+const duGrammarPath = __dirname + "/duscore.grammar"
 
 class Builder extends AbstractBuilder {
   produceWebApp(outputFileName) {
     return this.produceProductFromInstructionsTree(
       new jtree.TreeNode(`browserProduct
- outputFileName DauApp.browser.js
- files app/DauApp.ts`).nodeAt(0),
+ outputFileName DuApp.browser.js
+ files app/DuApp.ts`).nodeAt(0),
       __dirname
     )
   }
@@ -34,10 +34,10 @@ class Builder extends AbstractBuilder {
     return __dirname + "/app/" + outputFileName
   }
 
-  produceDauGrammar() {
-    jtree.formatFile(dauGrammarPath, __dirname + "/node_modules/jtree/langs/grammar/grammar.grammar")
-    jtree.compileGrammarForBrowser(dauGrammarPath, __dirname + "/", true)
-    jtree.compileGrammarForNodeJs(dauGrammarPath, __dirname + "/", true)
+  produceDuGrammar() {
+    jtree.formatFile(duGrammarPath, __dirname + "/node_modules/jtree/langs/grammar/grammar.grammar")
+    jtree.compileGrammarForBrowser(duGrammarPath, __dirname + "/", true)
+    jtree.compileGrammarForNodeJs(duGrammarPath, __dirname + "/", true)
   }
 }
 

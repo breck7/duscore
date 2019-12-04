@@ -1,5 +1,5 @@
 {
-  class dauscoreNode extends jtree.GrammarBackedNode {
+  class duscoreNode extends jtree.GrammarBackedNode {
     createParser() {
       return new jtree.TreeNode.Parser(
         this._getBlobNodeCatchAllNodeType(),
@@ -64,7 +64,7 @@
     }
     getGrammarProgram() {
       if (!this._cachedGrammarProgramRoot)
-        this._cachedGrammarProgramRoot = new jtree.GrammarProgram(`tooling onsave jtree build produceDauGrammar
+        this._cachedGrammarProgramRoot = new jtree.GrammarProgram(`tooling onsave jtree build produceDuGrammar
 boolCell
  enum Yes No
 keywordCell
@@ -73,7 +73,7 @@ stringCell
 urlCell
  highlightScope constant
 intCell
-dauscoreNode
+duscoreNode
  root
  inScope abstractQuestionNode
  javascript
@@ -366,7 +366,7 @@ downloadLinkNode
     }
     static getNodeTypeMap() {
       return {
-        dauscoreNode: dauscoreNode,
+        duscoreNode: duscoreNode,
         abstractQuestionNode: abstractQuestionNode,
         abstractStringQuestionNode: abstractStringQuestionNode,
         titleNode: titleNode,
@@ -766,5 +766,5 @@ downloadLinkNode
     }
   }
 
-  window.dauscoreNode = dauscoreNode
+  window.duscoreNode = duscoreNode
 }

@@ -22,4 +22,4 @@ description ${sentence.getLine()}`
   })
 })
 
-Disk.write(__dirname + "/dauscore.grammar", grammar.toString())
+Disk.write(__dirname + "/duscore.grammar", grammar.toString())

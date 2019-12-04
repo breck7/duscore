@@ -1,16 +1,16 @@
-# DauScore: A holistic scoring rubric for datasets
+# DuScore: A holistic scoring rubric for datasets
 
-[Try it Now](http://dauscore.treenotation.org/app/)
+[Try it Now](http://duscore.treenotation.org/app/)
 
-[View on GitHub](https://github.com/treenotation/dauscore)
+[View on GitHub](https://github.com/treenotation/duscore)
 
-DauScore helps you quickly access the quality and usability of a dataset.
+DuScore helps you quickly access the quality and usability of a dataset.
 
-High quality, easy to use datasets have lower DauScores. A perfect dataset would have a DauScore of 0.
+High quality, easy to use datasets have lower DuScores. A perfect dataset would have a DuScore of 0.
 
 Datasets accumulate points for having flaws.
 
-DauScore is a list of what the flaws are, and a set of arbitraray weights that the community can decide upon to penalize datasets more for common mistakes.
+DuScore is a list of what the flaws are, and a set of arbitraray weights that the community can decide upon to penalize datasets more for common mistakes.
 
 ## Further Reading
 
