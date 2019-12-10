@@ -22,6 +22,14 @@ DuScore is a list of what the flaws are, and a set of arbitraray weights that th
 
 Thanks to [Dr. Donaldson](http://wphomes.soic.indiana.edu/drdonald/) for the pointers to some of the references.
 
+## FOLDS
+
+- Formats - is the data in easy to use, well designed common formats?
+- Online - is the data online?
+- License - is it free to use, remix, and reshare?
+- Description - is a description of the data available and information on the provenance?
+- Specified - are the columns fully specified and can data be synthesized?
+
 ## Lists of Lists of Datasets
 
 - [Awesome Public Datasets](https://github.com/awesomedata/awesome-public-datasets)
